@@ -1,0 +1,38 @@
+<mat-drawer-container class="example-container" autosize>
+
+
+  <mat-drawer #drawer id="drawer" class="example-sidenav" mode="side" opened >
+    <div  class="flex-container" [ngStyle]="{ 'align-items':showFiller ? 'stretch' : 'center' }">
+      <div>
+        <button mat-icon-button class="icon">
+          <mat-icon [inline]="true">add</mat-icon>
+        </button>
+        <span class="sp-text" *ngIf="showFiller">Add New</span>
+      </div>
+      <div>
+        <button mat-icon-button class="icon" color="primary">
+          <mat-icon [inline]="true">delete</mat-icon>
+        </button>
+        <span class="sp-text" *ngIf="showFiller">Delete</span>
+      </div>
+      <div>
+        <button mat-icon-button class="icon" color="accent">
+          <mat-icon [inline]="true">view_quilt</mat-icon>
+        </button>
+        <span class="sp-text" *ngIf="showFiller">Change Layout</span>
+      </div>
+      <div>
+        <button mat-icon-button class="icon" color="warn">
+          <mat-icon [inline]="true">help</mat-icon>
+        </button>
+        <span class="sp-text" *ngIf="showFiller">Guide</span>
+      </div>
+    </div>
+    <button (click)="showFiller = !showFiller" class="bt"mat-button>
+      <mat-icon aria-hidden="false" >{{ showFiller ? 'chevron_left' : 'chevron_right'}}</mat-icon>
+    </button>
+  </mat-drawer>
+  <div class="example-sidenav-content">
+  </div>
+
+</mat-drawer-container>
