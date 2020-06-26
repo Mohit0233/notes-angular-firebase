@@ -2,10 +2,12 @@
     <button mat-icon-button (click)="valueChanged()">
         <mat-icon>menu</mat-icon>
     </button>
-    <a [routerLink]="['/']" color="primary"><h1>My App</h1></a>
+    <a [routerLink]="['/']" color="primary">
+        <h1>My App</h1>
+    </a>
     <span class="example-spacer"></span>
-        <button mat-raised-button >Login</button>
-        &nbsp;
-        <button mat-raised-button >Sign In</button>
+    <button mat-raised-button (click)="openDialog(0)">Login</button>
+    &nbsp;
+    <button mat-raised-button (click)="openDialog(1)">Sign In</button>
 
 </mat-toolbar>
