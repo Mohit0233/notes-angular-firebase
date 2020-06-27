@@ -3,8 +3,8 @@
 
     <mat-tab-group [selectedIndex]="selected">
         <mat-tab *ngFor="let tab of tabs; let index = index" [label]="tab">
-            <app-login *ngIf="selected == '0'"></app-login>
-            <app-signin *ngIf="selected == '1'"></app-signin>
+            <app-login *ngIf="tab == 'Login'"></app-login>
+            <app-signin *ngIf="tab == 'Sign in'"></app-signin>
         </mat-tab>
         
     </mat-tab-group>
