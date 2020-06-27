@@ -9,3 +9,9 @@
     z-index: 10;
     box-shadow: 0 2px 5px 0 rgba(0,0,0,.3);
 }
+.a-menu {
+  padding-left: 20px;
+}
+.h1-menu {
+  font-size: 32px;
+}

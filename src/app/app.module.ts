@@ -52,6 +52,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent, DialogComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { SigninComponent } from './signin/signin.component';
+import { LoginComponent } from './login/login.component';
+import { MainComponent } from './main/main.component';
 
 
 @NgModule({
@@ -59,7 +62,10 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     AppComponent,
     NavbarComponent,
     SidebarComponent,
-    DialogComponent
+    DialogComponent,
+    SigninComponent,
+    LoginComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
