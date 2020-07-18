@@ -1,37 +1,38 @@
-<mat-drawer-container class="example-container" autosize>
+<mat-sidenav-container class="sidenav-container" autosize><!--autosize is used to extend sidenav-->
 
-
-  <mat-drawer #drawer id="drawer" class="example-sidenav" mode="side" opened >
-    <div  class="flex-container" [ngStyle]="{ 'align-items':showFiller ? 'stretch' : 'center' }">
-      <div>
-        <button mat-icon-button class="icon">
-          <mat-icon [inline]="true">add</mat-icon>
-        </button>
-        <span class="sp-text" *ngIf="showFiller">Add New</span>
-      </div>
-      <div>
-        <button mat-icon-button class="icon" color="primary">
-          <mat-icon [inline]="true">delete</mat-icon>
-        </button>
-        <span class="sp-text" *ngIf="showFiller">Delete</span>
-      </div>
-      <div>
-        <button mat-icon-button class="icon" color="accent">
-          <mat-icon [inline]="true">view_quilt</mat-icon>
-        </button>
-        <span class="sp-text" *ngIf="showFiller">Change Layout</span>
-      </div>
-      <div>
-        <button mat-icon-button class="icon" color="warn">
-          <mat-icon [inline]="true">help</mat-icon>
-        </button>
-        <span class="sp-text" *ngIf="showFiller">Guide</span>
-      </div>
+<!--in below all the property are pasted very complex-->
+  <mat-sidenav id="drawer"  #drawer class="sidenav" fixedInViewport
+  [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+  [mode]="(isHandset$ | async) ? 'over' : 'side'"
+  [opened]="(isHandset$ | async) === false">
+  <mat-toolbar>M</mat-toolbar>
+    <mat-nav-list   style="padding: 0px">
+      <div class="mat-list-item-content" >
+      <a mat-list-item href="#">
+          <mat-icon matListIcon class="icon">add</mat-icon>  
+        <span matLine class="sp-text" *ngIf="showFiller">Add New</span>
+      </a>
     </div>
-    <button (click)="showFiller = !showFiller" class="bt"mat-button>
+      <a mat-list-item href="#">
+        <mat-icon matListIcon class="icon">delete</mat-icon>
+      <span matLine class="sp-text" *ngIf="showFiller">Delete</span>
+    </a>
+      <a mat-list-item href="#">
+          <mat-icon matListIcon class="icon">view_quilt</mat-icon>  
+        <span matLine class="sp-text" *ngIf="showFiller">Change Layout</span>
+      </a>
+      <a mat-list-item href="#">
+          <mat-icon matListIcon class="icon">help</mat-icon>  
+        <span matLine class="sp-text" *ngIf="showFiller">Guide</span>
+      </a>
+    </mat-nav-list>
+    <button (click)="showFiller = !showFiller" class="bt" mat-button>
       <mat-icon aria-hidden="false" >{{ showFiller ? 'chevron_left' : 'chevron_right'}}</mat-icon>
     </button>
-  </mat-drawer>
-  <app-main class="example-sidenav-content"></app-main>
+  </mat-sidenav>
 
-</mat-drawer-container>
+  <mat-sidenav-content class="sidenav-content">
+    <app-main></app-main>
+    <!--button mat-button (click)="chg()">Toggle</button-->
+  </mat-sidenav-content>
+</mat-sidenav-container>

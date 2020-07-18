@@ -47,8 +47,7 @@ import { MatTreeModule } from '@angular/material/tree';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
 
-
-import { AppRoutingModule } from './app-routing.module';
+import { Routes, RouterModule } from '@angular/router'; // CLI imports router
 import { AppComponent } from './app.component';
 import { NavbarComponent, DialogComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -56,6 +55,13 @@ import { SigninComponent } from './signin/signin.component';
 import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main/main.component';
 
+
+
+const routes: Routes = [
+  { path: '', component: NavbarComponent },//this is the main router opens when init shown by router-outlet
+  { path: 'login', component: NavbarComponent },
+  { path: 'signin', component: NavbarComponent },
+]; // sets up routes constant where you define your routes
 
 @NgModule({
   declarations: [
@@ -113,12 +119,13 @@ import { MainComponent } from './main/main.component';
     MatTreeModule,
     PortalModule,
     ScrollingModule,
-    AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    RouterModule.forRoot(routes)
 
 
   ],
+  exports: [RouterModule],
   providers: [
     { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } },
   ],
