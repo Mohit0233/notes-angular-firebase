@@ -9,7 +9,10 @@ import { map, shareReplay } from 'rxjs/operators';
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.css']
 })
-export class SidebarComponent implements OnChanges {
+export class SidebarComponent implements OnInit, OnChanges {
+
+  //Menu button of navbar triggered
+  @Input() flag: boolean;
 
   // show filter is used to extend the sidenav
   showFiller = false;
@@ -19,20 +22,20 @@ export class SidebarComponent implements OnChanges {
 
   //BreakpointObserver is a property use by isHandset$ to do it's functioning
   constructor(private breakpointObserver: BreakpointObserver) { }
-
-
-  // Trying to toggle sidenav when there is a change in flag value of parent component (navbar)
-  ngOnChanges(changes: SimpleChanges) {
-    for (let propName in changes) {
-      if (propName === 'flag')
-        this.sidenav.toggle();
-    }
+  ngOnInit(): void {
   }
 
-  // This is made to test that sidenav.toggle() works or not
-  //chg() {
-  //  this.sidenav.toggle();
-  //}
+
+  //Trying to toggle sidenav when there is a change in flag value of parent component (navbar)
+  ngOnChanges(changes: SimpleChanges) {
+    for (let propName in changes) {
+
+      console.log(changes, propName)
+      if (propName === 'flag' && !changes[propName].isFirstChange()) {
+        this.sidenav.toggle();
+      }
+    }
+  }
 
   //For making sidebar responsible isHandset$ is a Observable used when there is any change is the width (Laptop width, Mobile width) it changes properties of sidebar 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)

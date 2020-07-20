@@ -8,16 +8,12 @@
         <h1 class="h1-menu">Notes</h1>
     </a>
     <span class="example-spacer"></span>
-
-    <button mat-raised-button routerLink="/login" (click)="openDialog(0)">Login</button>
-    <!--routerlink not working properly-->
+    <button mat-raised-button routerLink="/login"  routerLinkActive="active" (click)="openDialog(0)">Login</button><!--routerlink not working properly-->
     &nbsp;
-    <button mat-raised-button routerLink="/signin" (click)="openDialog(1)">Sign In</button>
-    <!--routerlink not working properly-->
-
+    <button mat-raised-button routerLink="/signin" routerLinkActive="active"  (click)="openDialog(1)">Sign In</button><!--routerlink not working properly-->
 </mat-toolbar>
 
 <!--app-navbar (valueChange)='sb.toggleCustom($event)'></app-navbar-->
 <!--this is nothing-->
 
-<app-sidebar></app-sidebar>
+<app-sidebar [flag]="flag"></app-sidebar>

@@ -54,6 +54,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { SigninComponent } from './signin/signin.component';
 import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main/main.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 
@@ -61,6 +62,7 @@ const routes: Routes = [
   { path: '', component: NavbarComponent },//this is the main router opens when init shown by router-outlet
   { path: 'login', component: NavbarComponent },
   { path: 'signin', component: NavbarComponent },
+  { path: '**', component: PageNotFoundComponent },
 ]; // sets up routes constant where you define your routes
 
 @NgModule({
@@ -71,7 +73,8 @@ const routes: Routes = [
     DialogComponent,
     SigninComponent,
     LoginComponent,
-    MainComponent
+    MainComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -129,6 +132,7 @@ const routes: Routes = [
   providers: [
     { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } },
   ],
+  entryComponents: [DialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
