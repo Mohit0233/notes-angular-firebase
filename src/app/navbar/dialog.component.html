@@ -1,17 +1,36 @@
+
+    <nav mat-tab-nav-bar mat-dialog-title [backgroundColor]="background">
+        <span mat-tab-link
+     *ngFor="let link of links"
+     [routerLink]="link.link"
+     routerLinkActive #rla="routerLinkActive"
+     [routerLinkActiveOptions]="{exact:true}"
+     [active]="rla.isActive"
+     (click)="c()">
+    {{link.tab}}
+    </span>
+</nav>
 <mat-dialog-content class="mat-typography">
 
-
-    <mat-tab-group [selectedIndex]="selected">
-        <mat-tab *ngFor="let tab of tabs; let index = index" [label]="tab">
-            <app-login *ngIf="tab == 'Login'"></app-login>
-            <app-signin *ngIf="tab == 'Sign in'"></app-signin>
+    <app-login  *ngIf="selected == 0"></app-login>
+    <app-signin *ngIf="selected == 1"></app-signin>
+    <!--mat-tab-group [selectedIndex]="selected"
+    (selectedIndexChange)="onC($event)">
+        <mat-tab mat-tab-link
+        *ngFor="let link of links;"
+        [routerLink]="link.link"
+        routerLinkActive #rla="routerLinkActive"
+        [routerLinkActiveOptions]="{exact:true}"
+        [active]="rla.isActive"  [label]="link.tab">
+            <app-login  *ngIf="link.tab == 'Login'"></app-login>
+            <app-signin *ngIf="link.tab == 'Sign in'"></app-signin>
         </mat-tab>
-        
-    </mat-tab-group>
+    </mat-tab-group-->
 
-
+    
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-    <button mat-button mat-dialog-close>Cancel</button>
-    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>{{selected == 0 ? 'Login' : 'Sign In'}}</button>
+    <button mat-stroked-button mat-dialog-close>Cancel</button>
+    <button mat-stroked-button [mat-dialog-close]="true" cdkFocusInitial>{{selected == 0 ? 'Login' : 'Sign In'}}</button>
+    <!--button mat-stroked-button [mat-dialog-close]="true" cdkFocusInitial>OK</button-->
 </mat-dialog-actions>
