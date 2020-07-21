@@ -1,1 +1,10 @@
-<p>main works!</p>
+<mat-grid-list cols="4" rowHeight="fit" style="height: 200px;">
+    <div *ngFor="let list of lists">
+        <mat-grid-tile>
+            <mat-card>
+                <mat-card-title>{{list.name}}</mat-card-title>
+                <mat-card-content>{{list.description}}</mat-card-content>
+            </mat-card>
+        </mat-grid-tile>    
+    </div>
+</mat-grid-list>
