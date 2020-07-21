@@ -1,0 +1,45 @@
+<mat-grid-list cols="4" rowHeight="200px">
+    <!-- loop started for iteration of lists present in .ts file -->
+    <div *ngFor="let list of lists;let i = index">
+        <mat-grid-tile>
+            <!-- a card is displayed with name and info of the list -->
+            <mat-card> 
+                <mat-card-title>{{list.name}}</mat-card-title>
+                <mat-card-content>{{list.description}}</mat-card-content>
+                <!-- delete button deletes the particular list and edit open ups the list just below the element  -->
+                <mat-card-actions>
+                    <button mat-button (click)="onDeleteList(i)">Delete</button>
+                    <button mat-button (click)="onOpenList(i)">Edit</button>
+                </mat-card-actions>
+            </mat-card>
+        </mat-grid-tile>    
+    </div>
+    <div>
+        <mat-grid-tile>
+            <mat-card>
+                <mat-icon class="icon"  (click)="addingListStatus=true" *ngIf="addingListStatus===false; else addingList">add</mat-icon>
+                <ng-template #addingList>
+                    <form class="addingListForm">
+                        <mat-form-field class="inputting">
+                            <mat-label>List Name</mat-label>
+                            <input
+                                matInput 
+                                placeholder="Name" 
+                                #listNameInput> 
+                        </mat-form-field>
+                        <mat-form-field class="inputting">
+                            <mat-label>Description</mat-label>
+                            <textarea
+                                matInput 
+                                placeholder="List Description" 
+                                #listDescriptionInput>
+                            </textarea>
+                            <button mat-button class="btn btn-primary" (click)="onAddList()">Add</button>
+                        </mat-form-field>
+                    </form>
+                </ng-template>
+            </mat-card>
+        </mat-grid-tile>
+    </div>
+</mat-grid-list>
+<app-list-view [index]="indexToChild"></app-list-view>
