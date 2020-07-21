@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ListsService } from "./lists.service";
+import { ListsService } from "../lists/lists.service";
 
 @Component({
   selector: 'app-main',
@@ -8,14 +8,8 @@ import { ListsService } from "./lists.service";
   providers: [ListsService]
 })
 export class MainComponent implements OnInit {
-  lists:[{
-    'name' : string, 'description' : string, 'listElements' : string[] }] 
-    = [{ 'name': 'TestList', 'description': 'This is a test list', 'listElements': [] }];
-
   constructor(private listService:ListsService) { }
 
-  ngOnInit(): void {
-    this.lists=this.listService.lists
-  }
+  ngOnInit(): void {}
 
 }

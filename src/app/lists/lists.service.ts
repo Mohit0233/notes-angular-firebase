@@ -7,7 +7,7 @@ export class ListsService{
         'name':string,
         'description':string,
         'listElements':string[]
-    }]
+    }]= [{ 'name': 'TestList', 'description': 'This is a test list', 'listElements': [] }];
 
     onAddList(receivedName:string,receiveDescription:string){
         this.lists.push({'name': receivedName,
@@ -17,7 +17,7 @@ export class ListsService{
     }
 
     onDeleteList(i:number){
-        delete this.lists[i];
+        this.lists.splice(i,0);
     }
 
     onAddListElement(i:number , element:string){

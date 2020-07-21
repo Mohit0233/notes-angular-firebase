@@ -55,6 +55,7 @@ import { SigninComponent } from './signin/signin.component';
 import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main/main.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ListsComponent } from './lists/lists.component';
 
 
 
@@ -74,7 +75,8 @@ const routes: Routes = [
     SigninComponent,
     LoginComponent,
     MainComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ListsComponent
   ],
   imports: [
     BrowserModule,
