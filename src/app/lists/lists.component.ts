@@ -8,7 +8,8 @@ import { ListsService} from './lists.service'
 })
 export class ListsComponent implements OnInit {
   addingListStatus:boolean=false;
-  
+  indexToChild:number;
+
   @ViewChild('listNameInput') listName:ElementRef;
   @ViewChild('listDescriptionInput') listDescription:ElementRef;
 
@@ -31,5 +32,9 @@ export class ListsComponent implements OnInit {
     this.listService.onAddList(this.listName.nativeElement.value,
                               this.listDescription.nativeElement.value);
     this.addingListStatus=false;
+  }
+
+  onOpenList(index:number){
+    this.indexToChild=index;
   }
 }
