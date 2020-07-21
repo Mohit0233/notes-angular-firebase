@@ -56,7 +56,6 @@ import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main/main.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ListsComponent } from './lists/lists.component';
-import { ListViewComponent } from './list-view.component./list-view.component';
 import { ViewListComponent } from './view-list/view-list.component'
 
 
@@ -78,7 +77,6 @@ const routes: Routes = [
     MainComponent,
     PageNotFoundComponent,
     ListsComponent,
-    ListViewComponent,
     ViewListComponent
   ],
   imports: [
